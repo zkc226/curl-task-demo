@@ -54,11 +54,17 @@ php -f client_start_task1.php
 此处的调用规则可以自己实现，
 
 执行流程：
+
 1、client_start_task1.php 发布task1任务到task:queue:ctrl控制队列（生产者队列）
+
 2、task-consumer.php 监听task:queue:ctrl到数据后
+
 2.1、引入task1/start.php文件    执行task1_start方法
+
 2.2、将返回的任务放入子任务队列task:queue:data，并且限制并发
+
 3、task-sub-consumer.php 监听task:queue:data，取到子任务队列前缀后去相应的list取数据，执行完毕后将pool对应的index取出
+
 4、循环执行2.2直到数据执行完毕
 
 
