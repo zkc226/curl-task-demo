@@ -40,14 +40,16 @@ mysql部分未实现已加TODO
     └── start.php
 ```
 
-启动的时候，以下2个任务在后台启动，可以借助supervisord等工具来实现，或者使用crontab 没隔一段时间启动一次，代码内做了循环够一定次数后退出的设置，并且限制单例启动，supervisord可以自动重启
+启动的时候，以下2个任务在后台启动，可以借助supervisord等工具来实现，或者使用crontab 每隔一段时间启动一次，代码内做了循环够一定次数后退出的设置，并且限制单例启动，supervisord可以自动重启
+```
 php -f bin/task-consumer.php
 php -f bin/task-sub-consumer.php
-
+```
 
 启动task1执行
+```
 php -f client_start_task1.php
-
+```
 
 任务调度规则
 
